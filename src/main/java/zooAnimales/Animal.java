@@ -61,10 +61,6 @@ public class Animal {
 			return totalAnimales;
 		}
 		
-		/*
-		public static int getTotalAnimales() {
-			return Mamifero.cantidadMamiferos()+Ave.cantidadAves()+Reptil.cantidadReptiles()+Pez.cantidadPeces()+Anfibio.cantidadAnfibios();
-		}*/
 		
 		public String movimiento() {
 			return "desplazarse";

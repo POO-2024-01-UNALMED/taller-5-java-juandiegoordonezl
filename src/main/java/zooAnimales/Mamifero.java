@@ -8,9 +8,7 @@ public class Mamifero extends Animal {
 		private boolean pelaje;
 		private int patas;
 		public static int creados;
-		/*public static String habitatd="algo";
-		public static boolean pelajed=false;
-		public static int patasd=4;*/
+		
 
 		public static Mamifero crearCaballo(String nombre, int edad, String genero) {
 			String habitat="pradera";
