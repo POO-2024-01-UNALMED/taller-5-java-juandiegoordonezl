@@ -8,6 +8,38 @@ public class Reptil extends Animal {
 	private String colorEscamas;
 	private int largoCola;
 	
+	
+	
+	 private static int cantidadReptiles = 0;
+	    private static int iguanas = 0;
+	    private static int serpientes = 0;
+
+	    public static int cantidadReptiles() {
+	        return cantidadReptiles;
+	    }
+
+	    public static int getIguanas() {
+	        return iguanas;
+	    }
+
+	    public static int getSerpientes() {
+	        return serpientes;
+	    }
+
+	    public static Reptil crearIguana(String nombre, int edad, String genero) {
+	        Reptil iguana = new Reptil("verde", 3, "humedal", nombre, edad, "humedal", genero);
+	        iguanas++;
+	        cantidadReptiles++;
+	        return iguana;
+	    }
+
+	    public static Reptil crearSerpiente(String nombre, int edad, String genero) {
+	        Reptil serpiente = new Reptil("blanco", 1, "jungla", nombre, edad, "jungla", genero);
+	        serpientes++;
+	        cantidadReptiles++;
+	        return serpiente;
+	    }
+	
 	public Reptil() {
 		
 	}
@@ -19,21 +51,13 @@ public class Reptil extends Animal {
 		this.largoCola = largoCola;
 	} 
 	
-	public void cantidadReptiles() {
+	public static void cantidadReptiles() {
 		
 	}
 	
 	@override
-	public void movimiento() {
-		
-	}
+	public String movimiento() {
+		return "reptar";
+	}}
 	
-	public void crearIguana() {
-		
-	}
-	
-	public void crearSerpiente() {
-		
-	}
 
-}

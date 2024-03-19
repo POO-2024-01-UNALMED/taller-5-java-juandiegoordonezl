@@ -1,5 +1,5 @@
 package gestion;
-
+import java.util.*;
 public class Zoologico {
 	private String nombre;
 	private String ubicacion;
@@ -15,11 +15,15 @@ public class Zoologico {
 		
 		
 	}
-	public void agregarZonas() {
-		
+	public void agregarZonas(Zona nuevazona) {
+		zonas.add(nuevazona);
 	}
-	public void cantidadTotalAnimales() {
-		
-	}
+	public int cantidadTotalAnimales() {
+        int totalAnimales = 0;
+        for (Zona zona : zonas) {
+            totalAnimales += zona.cantidadAnimales();
+        }
+        return totalAnimales;
+    }
 
 }
