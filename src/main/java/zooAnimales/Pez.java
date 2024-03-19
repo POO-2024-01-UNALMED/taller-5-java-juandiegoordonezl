@@ -1,62 +1,67 @@
-
 package zooAnimales;
 import java.util.*;
 public class Pez extends Animal {
-	
-	private ArrayList<Pez> listado= new ArrayList<>();
-	public int salmones;
-	public int bacalaos;
-	private String colorEscamas;
-	private int cantidadAletas;
-	
-	private static int cantidadPeces = 0;
-    private static int salmones = 0;
-    private static int bacalaos = 0;
-
-    public static int cantidadPeces() {
-        return cantidadPeces;
-    }
-
-    public static int getSalmones() {
-        return salmones;
-    }
-
-    public static int getBacalaos() {
-        return bacalaos;
-    }
-
-	
-	public Pez () {
+		private ArrayList<Pez> listado= new ArrayList<>();
+		public static int salmones;
+		public static int bacalaos;
+		private String colorEscamas;
+		private int cantidadAletas;
+		public static int creados;
 		
-	}
-	
-	public Pez (int salmones, int bacalaos, String colorEscamas, int cantidadAletas) {
-		this.salmones = salmones;
-		this.bacalaos = bacalaos;
-		this.colorEscamas = colorEscamas;
-		this.cantidadAletas = cantidadAletas;
+		public String getColorEscamas() {
+			return colorEscamas;
+		}
+
+		public void setColorEscamas(String colorEscamas) {
+			this.colorEscamas = colorEscamas;
+		}
+
+		public int getCantidadAletas() {
+			return cantidadAletas;
+		}
+
+		public void setCantidadAletas(int cantidadAletas) {
+			this.cantidadAletas = cantidadAletas;
+		}
+
+		public Pez() {
+			listado.add(this);
+			creados++;
+		}
 		
-	}
-	
-
-	@override
-	public String movimiento() {
-		return "nadar";
-	}
-	
-	 public static Pez crearSalmon(String nombre, int edad, String genero) {
-	        Pez salmon = new Pez("rojo", 6, "oceano", nombre, edad, "oceano", genero);
-	        salmones++;
-	        cantidadPeces++;
-	        return salmon;
-	    }
-
-	    public static Pez crearBacalao(String nombre, int edad, String genero) {
-	        Pez bacalao = new Pez("gris", 6, "oceano", nombre, edad, "oceano", genero);
-	        bacalaos++;
-	        cantidadPeces++;
-	        return bacalao;
-	    }
+		public Pez(String nombre, int edad, String habitat, String genero, String colorEscamas, int cantidadAletas) {
+			super(nombre, edad, habitat,genero);
+			this.colorEscamas=colorEscamas;
+			this.cantidadAletas=cantidadAletas;
+			listado.add(this);
+			creados++;
+		}
+		
+		public static int cantidadPeces() {
+			return creados;
+		}
+		
+		public String movimiento() {
+			return "nadar";
+		}
+		
+		public static Pez crearSalmon(String nombre, int edad, String genero) {
+			String habitat="oceano";
+			String colorEscamas="rojo";
+			int cantidadAletas=6;
+			Pez pez=new Pez(nombre,edad,habitat,genero,colorEscamas,cantidadAletas);
+			salmones++;
+			return pez;
+		}
+		
+		public static Pez crearBacalao(String nombre, int edad, String genero) {
+			String habitat="oceano";
+			String colorEscamas="gris";
+			int cantidadAletas=6;
+			Pez pez=new Pez(nombre,edad,habitat,genero,colorEscamas,cantidadAletas);
+			bacalaos++;
+			return pez;
+		}
 }
 
 

@@ -1,61 +1,55 @@
 package zooAnimales;
 import java.util.*;
 public class Ave extends Animal {
-	
-	private ArrayList<Ave> listado = new ArrayList<>();
-	public int halcones;
-	public int aguilas;
-	private String colorPlumas;
-	
-	 private static int cantidadAves = 0;
-	    private static int halcones = 0;
-	    private static int aguilas = 0;
-
-	    public static int cantidadAves() {
-	        return cantidadAves;
-	    }
-
-	    public static int getHalcones() {
-	        return halcones;
-	    }
-
-	    public static int getAguilas() {
-	        return aguilas;
-	    }
-
-	    public static Ave crearHalcon(String nombre, int edad, String genero) {
-	        Ave halcon = new Ave("cafe glorioso", "montanas", nombre, edad, "montanas", genero);
-	        halcones++;
-	        cantidadAves++;
-	        return halcon;
-	    }
-
-	    public static Ave crearAguila(String nombre, int edad, String genero) {
-	        Ave aguila = new Ave("blanco y amarillo", "montanas", nombre, edad, "montanas", genero);
-	        aguilas++;
-	        cantidadAves++;
-	        return aguila;
-	    }
-	
-	public Ave() {
+		private ArrayList<Ave> listado= new ArrayList<>();
+		public static int halcones;
+		public static int aguilas;
+		private String colorPlumas;
+		public static int creados;
 		
-	}
-	
-	public Ave(int halcones, int aguilas, String colorPlumas) {
-		this.halcones = halcones;
-		this.aguilas = aguilas;
-		this.colorPlumas = colorPlumas;
+		public String getColorPlumas() {
+			return colorPlumas;
+		}
+
+		public void setColorPlumas(String colorPlumas) {
+			this.colorPlumas = colorPlumas;
+		}
+
+		public Ave() {
+			listado.add(this);
+			creados++;
+		}
 		
-	}
-	
-	public static void cantidadAves() {
+		public Ave(String nombre, int edad, String habitat, String genero, String colorPlumas) {
+			super(nombre, edad, habitat,genero);
+			this.colorPlumas=colorPlumas;
+			listado.add(this);
+			creados++;
+		}
 		
-	}
-	
-	@override
-	public String movimiento() {
-		return "volar";
-	}
+		public static int cantidadAves() {
+			return creados;
+		}
+		
+		public String movimiento() {
+			return "volar";
+		}
+		
+		public static Ave crearHalcon(String nombre, int edad, String genero) {
+			String habitat="montanas";
+			String colorPlumas="cafe glorioso";
+			Ave ave=new Ave(nombre,edad,habitat,genero,colorPlumas);
+			halcones++;
+			return ave;
+		}
+		
+		public static Ave crearAguila(String nombre, int edad, String genero) {
+			String habitat="montanas";
+			String colorPlumas="blanco y amarillo";
+			Ave ave=new Ave(nombre,edad,habitat,genero,colorPlumas);
+			aguilas++;
+			return ave;
+		}
 	
 
 }
